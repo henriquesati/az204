@@ -1,7 +1,7 @@
 #!/bin/bash
 RG="main-testing"
 STORAGE="/subscriptions/c453db49-799d-4154-bc6d-95fdde74484e/resourceGroups/DefaultResourceGroup-CCAN/providers/Microsoft.Storage/storageAccounts/pedristore"
-FUNC="pedrifunction"
+FUNC="functiontostore"
 
 
 echo "$RG" "$STORAGE" "$FUNC"
