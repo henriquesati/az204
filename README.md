@@ -41,6 +41,21 @@ func start
 
 As funções estarão disponíveis em `http://localhost:7071/api/{nome-da-funcao}`
 
+## Azure CLI Commands por Componente
+
+Referência de comandos Azure CLI utilizados neste projeto, organizados por tipo de componente.
+
+### Function App
+
+Gerenciamento da aplicação Function App no Azure.
+
+**Atribuir Managed Identity:**
+```bash
+az functionapp identity assign --name "pedrifunction" --resource-group "main-testing"
+```
+
+Permite que a Function App use uma identidade gerenciada para autenticação segura.
+
 ## EntraID
 
 Scripts para gerenciamento de usuários e grupos no Azure Entra ID.
