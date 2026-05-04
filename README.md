@@ -26,6 +26,9 @@ az role assignment create \
   --role "Storage Blob Data Contributor" \
   --scope "$STORAGE_SCOPE"
 ```
+```
+az functionapp identity show --name pedrifunction --resource-group main-testing
+```
 ## Storage
 ```
 az storage account update \
