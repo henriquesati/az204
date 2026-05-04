@@ -12,20 +12,20 @@ az204/
 
 ## Function Apps
 
-Para criar uma nova função HTTP trigger com C#:
-
 ```bash
 func new --template "HTTP trigger" --name auth_storage --csx
 ```
-### Function App
 
-Gerenciamento da aplicação Function App no Azure.
-
-**Atribuir Managed Identity:**
 ```bash
 az functionapp identity assign --name "pedrifunction" --resource-group "main-testing"
 ```
-
+```
+az role assignment create \
+  --assignee-object-id "373fce5d-8eeb-4696-b104-e828b790349f" \
+  --assignee-principal-type ServicePrincipal \
+  --role "Storage Blob Data Contributor" \
+  --scope "$STORAGE_SCOPE"
+```
 Permite que a Function App use uma identidade gerenciada para autenticação segura.
 
 ## EntraID
