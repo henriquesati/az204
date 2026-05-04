@@ -26,7 +26,13 @@ az role assignment create \
   --role "Storage Blob Data Contributor" \
   --scope "$STORAGE_SCOPE"
 ```
-Permite que a Function App use uma identidade gerenciada para autenticação segura.
+## Storage
+```
+az storage account update \
+  --name "$STORAGE_NAME" \
+  --resource-group "$STORAGE_RG" \
+  --allow-shared-key-access false
+```
 
 ## EntraID
 
