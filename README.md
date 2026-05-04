@@ -36,7 +36,23 @@ az storage account update \
   --resource-group "$STORAGE_RG" \
   --allow-shared-key-access false
 ```
+## account keys
 
+```
+az storage account keys renew \
+  --resource-group <rg-da-storage> \
+  --account-name pedristore \
+  --key primary
+```
+
+```
+az functionapp config appsettings set \
+  --name pedrifunction \
+  --resource-group main-testing \
+  --settings \
+  AzureWebJobsStorage="<CONNECTION_STRING>" \
+  WEBSITE_CONTENTAZUREFILECONNECTIONSTRING="<CONNECTION_STRING>"
+```
 ## EntraID
 
 Scripts para gerenciamento de usuários e grupos no Azure Entra ID.
