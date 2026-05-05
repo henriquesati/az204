@@ -11,9 +11,24 @@ az204/
 ```
 
 ## Function Apps
+```
+az functionapp create \
+  --resource-group main-testing \
+  --consumption-plan-location brazilsouth \
+  --runtime dotnet \
+  --runtime-version 8 \
+  --functions-version 4 \
+  --name compfunctions \
+  --storage-account pedristorage \
+  --os-type Linux
+```
 
 ```bash
 func new --template "HTTP trigger" --name auth_storage --csx
+
+```
+func azure functionapp publish compfunctions
+```
 ```
 
 ```bash
