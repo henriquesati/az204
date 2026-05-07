@@ -1,0 +1,64 @@
+{
+  "rules": [
+    {
+      "name": "videos-to-cool-then-archive",
+      "enabled": true,
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["main-teste/videos/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 180
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "logs-delete-after-90-days",
+      "enabled": true,
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["appendBlob"],
+          "prefixMatch": ["main-teste/logs/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": {
+              "daysAfterModificationGreaterThan": 90
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "backups-to-cold-then-delete",
+      "enabled": true,
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": ["blockBlob"],
+          "prefixMatch": ["main-teste/backups/"]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCold": {
+              "daysAfterModificationGreaterThan": 60
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 365
+            }
+          }
+        }
+      }
+    }
+  ]
+}
