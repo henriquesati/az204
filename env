@@ -1,1 +1,12 @@
 rg = main-testing
+subscription = "c453db49-799d-4154-bc6d-95fdde74484e"
+functionid = "373fce5d-8eeb-4696-b104-e828b790349f"
+storage_scope=/subscriptions/c453db49-799d-4154-bc6d-95fdde74484e/resourceGroups/main-testing/providers/Microsoft.Storage/storageAccounts/pedristorage
+FUNCTION_KEY=<your-azure-function-key-here>
+identityid=ecb9abb7-57e8-4a0a-9666-0199f3f85b17
+
+# Atribuir a role Storage Blob Data Contributor para seu usuário
+az role assignment create \
+  --assignee $(az ad signed-in-user show --query id -o tsv) \
+  --role "Storage Blob Data Contributor" \
+  --scope /subscriptions/ID_DA_SUA_ASSINATURA/resourceGroups/NOME_DO_RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/NOME_DA_STORAGE
